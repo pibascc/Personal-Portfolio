@@ -1,0 +1,138 @@
+:root {
+  --primary: black;
+  --secondary: #2702ba;
+}
+
+html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary);
+  font-family: sans-serif;
+  color: white;
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 50px;
+  background-color: var(--primary);
+  border-bottom: 1px solid white;
+}
+
+#navbar a {
+  margin: auto;
+  color: white;
+  font-size: 2em;
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  color: var(--primary);
+  background-color: white;
+}
+
+#navbar a:active {
+  color: white;
+  background-color: var(--primary);
+}
+
+#welcome-section {
+  background-color: var(--secondary);
+  height: 100vh;
+  min-height: 500px;
+  width: 100%;
+  padding-top: 50px;  
+  border-bottom: 1px solid white;
+}
+
+#welcome-section h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 5rem;
+}
+
+#intro {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+#intro img {
+  margin: 0 50px;
+  width: 200px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+#intro ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+}
+
+#intro li {
+  font-size: 2rem;
+}
+
+#projects {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5rem;
+}
+
+#projects h2 {
+  width: 100%;
+  padding: 20px;
+  font-size: 3rem;
+  border-bottom: 1px solid white;
+}
+
+.project-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  width: 300px;
+  height: 200px;
+  color: inherit;
+  border: 2px solid white;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.project-tile:hover {
+  color: var(--primary);
+  background-color: white;
+}
+
+.project-tile:active {
+  color: white;
+  background-color: var(--primary); 
+}
+
+@media only screen and (min-width: 992px) {
+  body, html {
+    font-size: 20px;
+  }
+
+  #intro, #projects {
+    flex-direction: row;
+  }
+}
