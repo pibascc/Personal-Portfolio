@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeFinder</title>
+    <link rel="stylesheet" href="PrimeFinderWeb.css">
+    <script src="PrimeFinderWeb.js"></script>
+</head>
+<body>
+    <header>
+        <h1>PrimeFinder</h1>
+    </header>
+    <main>
+        <fieldset id="input_field">
+            <legend>Enter a number:</legend>
+            <input type="number" id="number_input" oninput="clearResult()">
+            <button onclick="process()">Check</button>
+        </fieldset>
+        <div id="result_field">
+            <h2 id="main_result"></h2>
+            <p id="result_caption"><noscript>JavaScript disabled or not supported</noscript></p>
+            <p id="result_divisor"></p>
+        </div>
+    </main>
+</body>
+</html>

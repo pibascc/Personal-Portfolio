@@ -1,0 +1,74 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+}
+
+header {
+    width: 60vw;
+    max-width: 800px;
+    margin: 1.5rem auto;
+}
+main {
+    width: 60vw;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#input_field {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+#input_field input[type="number"], #input_field button {
+    font-size: 0.9rem;
+    border-radius: 0.25rem;
+    border: 0.05rem solid gray;
+    margin: 0.1rem;
+}
+#input_field input[type="number"] {
+    width: 50%;
+}
+#input_field button:hover {
+    background-color: gold;
+}
+#input_field button:active {
+    background-color: black;
+    color: white;
+}
+
+#result_field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 8rem;
+    margin: 1.25rem auto;
+    border: 0.05rem solid white;
+    border-radius: 20px;
+}
+#result_field h2 {
+    font-size: 3rem;
+    margin: 0.1rem 0;
+}
+#result_field p {
+    font-size: 0.5rem;
+    margin: 0.1rem 0;
+}
+#result_field #result_divisor {
+    font-size: 1rem;
+}
+
+@media only screen and (min-width: 992px) {
+    body, html {
+        font-size: 40px;
+    }
+}
