@@ -78,6 +78,7 @@ header {
 .banner {
     width: 100%;
     filter: brightness(0.5);
+    object-fit: cover;
 }
 
 main {
@@ -149,7 +150,8 @@ main {
     justify-content: center;
     margin: 1rem;
     gap: 1rem;
-    width: 60%
+    width: 60%;
+    min-width: 25rem;
 }
 .name-cont {
     width: 100%;
