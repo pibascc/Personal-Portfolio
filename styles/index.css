@@ -1,197 +1,111 @@
-:root {
-    --primary: black;
-    --secondary: #1f2020;
-    --tertiary: white;
-}
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--primary);
-    font-family: sans-serif;
-    color: var(--tertiary);
-    font-size: 10px;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-@keyframes fade-in {
-    from {
-        top: -1rem;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
-}
-@keyframes expand {
-    from {
-        width: 0%;
-        opacity: 0;
-    }
-    to {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
-header {
-    border-bottom: 1px solid var(--tertiary);
-    margin-top: 2.5rem;
-}
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-    height: 2.5rem;
-    background-color: var(--primary);
-    border-bottom: 0.1rem solid white;
-}
-.navlink {
-    color: var(--tertiary);
-    font-size: 1rem;
-    text-decoration: none;
-    padding: 0.2rem 0.4rem;
-    border-radius: 1rem;
-    transition: font-size 0.25s, background-color 0.25s, color 0.25s;
-}
-.navlink:hover {
-    background-color: var(--tertiary);
-    color: var(--primary);
-    font-size: 1.1rem;
-}
-.navlink:active {
-    background-color: var(--secondary);
-    color: var(--tertiary);
-    border: 1px solid var(--tertiary);
-}
-
-.banner {
-    width: 100%;
-    filter: brightness(0.5);
-    object-fit: cover;
-}
-
 main {
     padding: 1rem 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 6rem;
 }
 .main-content {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 3rem;
     align-items: center;
-    gap: 2rem;
-    width: 90%;
     margin: 0 auto;
 }
-
 .navblock {
     position: relative;
     top: -1rem;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     margin: 1rem;
     gap: 1rem;
     opacity: 0;
-    animation: fade-in 0.75s 2.25s ease-out forwards;
+    animation: fade-in-down 0.75s 2.25s ease-out forwards;
+    & .navtile {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--secondary);
+        position: relative;
+        width: 6rem;
+        height: 4rem;
+        border: 0.1rem solid var(--tertiary);
+        border-radius: 1rem;
+        color: var(--tertiary);
+        overflow: hidden;
+        text-decoration: none;
+        transition: height 0.3s;
+        & span {
+            font-size: 2rem;
+            margin: 1rem;
+            z-index: 1;
+        }
+        & .expanded {
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+            & p {
+                font-size: 0.75rem;
+            }
+        }
+    }
+    & .navtile:hover {
+        height: 5rem;
+        & .expanded {
+            opacity: 1;
+        }
+    }    
 }
-.navtile {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--secondary);
-    position: relative;
-    width: 7.5rem;
-    height: 5rem;
-    border: 0.1rem solid var(--tertiary);
-    border-radius: 1rem;
-    color: var(--tertiary);
-    text-decoration: none;
-    transition: height 0.5s;
-}
-.navtile span {
-    font-size: 3rem;
-    margin: 1rem;
-}
-.navtile .expanded {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-.navtile:hover {
-    height: 7rem;
-}
-.navtile .expanded:hover {
-    opacity: 1;
-}
-
 .about-me {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     margin: 1rem;
-    gap: 1rem;
-    width: 60%;
-    min-width: 25rem;
+    gap: 3rem;
+    width: 30rem; 
 }
 .name-cont {
     width: 100%;
-    max-width: 30rem;
-    margin: 0 auto;
-    padding: 0;
+    padding: 0;  
 }
 .name {
     display: flex;    
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     gap: 1rem;
-    margin: 1rem;  
-    height: 7.5rem;
-    width: 100%;
-    max-width: 30rem;
-    opacity: 1;
-    border-left: 0.1rem solid var(--tertiary);
-    border-right: 0.1rem solid var(--tertiary);
-    border-radius: 2rem;
+    height: 12.5rem;
+    width: 0%;
+    opacity: 0;
+    border-left: 1px solid var(--tertiary);
+    border-right: 1px solid var(--tertiary);
     margin: 0 auto;
     padding: 0 1rem;
-    animation: expand 2s;
-}
-.name h2, .name img {
-    opacity: 0;
-    animation: fade-in 0.75s 1.5s forwards;
-}
-.name h2 {
-    margin: auto 0;
-    font-size: 1.5rem;
-}
-.name img {
-    width: 7.5rem;
-    height: 7.5rem;
-    border: 0.2rem solid var(--tertiary);
-    border-radius: 50%;
-    object-fit: contain;
+    animation: fade-in-expand 2s 1s forwards;
+    & h2, & img {
+        opacity: 0;
+        animation: fade-in 0.75s 2.5s forwards;
+    }
+    & h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        height: fit-content;
+    }
+    img {
+        width: 7.5rem;
+        height: 7.5rem;
+        border: 0.2rem solid var(--tertiary);
+        border-radius: 50%;
+        object-fit: contain;
+    }
 }
 .bio {
     position: relative;
@@ -201,57 +115,55 @@ main {
     align-items: center;
     position: relative;
     width: 100%;
-    max-width: 30rem;
     height: 7.5rem;
     background-color: var(--secondary);
     border: 0.1rem solid var(--tertiary);
     border-radius: 2rem;
-    margin: 3rem auto;
     transition: height 0.5s;
     opacity: 0;
-    animation: fade-in 0.75s 2s ease-out forwards;
-}
-.bio h1 {
-    font-size: 3rem;
-}
-.bio div {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-.bio div hr, .bio div p {
-    width: 90%;
-}
-.bio div p {
-    margin-bottom: 2rem;
-}
-.bio div:hover {
-    opacity: 1;
+    overflow: hidden;
+    animation: fade-in-down 0.75s 3s ease-out forwards;
+    & h1 {
+        font-size: 3rem;
+        z-index: 1;
+    }
+    & .expanded {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s;
+        & hr, & p {
+            width: 90%;
+        }
+        & p {
+            padding: 0 1rem;
+            margin-bottom: 2rem;
+        }       
+    }    
 }
 .bio:hover {
-    height: 12.5rem;    
+    height: 14rem;
+    & .expanded {
+        opacity: 1;
+    }
 }
 
-
 @media only screen and (min-width: 992px) {
-    body, html {
-        font-size: 20px;
-   }
-
-   .main-content {
-    flex-direction: row;
-    align-items: flex-start;
-   }
-   .navblock {
-    flex-direction: column;
-   }
-   .about-me {
-    justify-content: space-between;
-   }
+    .main-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .navblock {
+        flex-direction: column;
+    }
+    .name {
+        flex-direction: row;
+        justify-content: space-around;
+        height: 7.5rem;
+    }
 }

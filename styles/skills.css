@@ -1,123 +1,17 @@
-:root {
-    --primary: black;
-    --secondary: #1f2020;
-    --tertiary: white;
-}
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--primary);
-    font-family: sans-serif;
-    color: var(--tertiary);
-    font-size: 10px;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-
-@keyframes fade-in {
-    from {
-        top: -1rem;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
-}
-@keyframes expand {
-    from {
-        width: 0%;
-        opacity: 0;
-    }
-    to {
-        width: 100%;
-        opacity: 1;
-    }
-}
-
 header {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid var(--tertiary);
-    margin-top: 2.5rem;
-}
-.navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 999;
-    width: 100%;
-    height: 2.5rem;
-    background-color: var(--primary);
-    border-bottom: 0.1rem solid white;
-}
-.navlink {
-    color: var(--tertiary);
-    font-size: 1rem;
-    text-decoration: none;
-    padding: 0.2rem 0.4rem;
-    border-radius: 1rem;
-    transition: font-size 0.25s, background-color 0.25s, color 0.25s;
-}
-.navlink:hover {
-    background-color: var(--tertiary);
-    color: var(--primary);
-    font-size: 1.1rem;
-}
-.navlink:active {
-    background-color: var(--secondary);
-    color: var(--tertiary);
-    border: 1px solid var(--tertiary);
-}
-.banner {
-    width: 100%;
-    filter: brightness(0.5);
-    object-fit: cover;
-}
-
-.skills-header-cont {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    width: 30rem;
-    height: 7.5rem;
-    padding: 0 1rem;
-    z-index: 1;
-}
-.skills-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    opacity: 1;
-    margin: 0;
-    border-left: 0.2rem solid var(--tertiary);
-    border-right: 0.2rem solid var(--tertiary);
-    border-radius: 2rem;
-    animation: expand 2s;
-}
-.skills-header h1 {
-    margin: 0;
-    opacity: 0;
-    font-size: 5rem;
-    animation: fade-in 1s 1s forwards;
 }
 
 main {
-    padding: 2rem 0;
-    margin-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 6rem;
+    min-height: 70vh;
 }
-
 .skill-block {
     display: flex;
     flex-direction: row;
@@ -126,88 +20,100 @@ main {
     gap: 1rem;
     width: 80%;
     max-width: 40rem;
-    margin: 0 auto;   
+    margin: auto;
+           
 }
 .skill-tile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    position: relative;
-    top: -1rem;
-    opacity: 0;
-    width: 10rem;
-    height: 10rem;
-    background-color: var(--secondary);
-    padding: 0;
-    border: 0.1rem solid var(--tertiary);
-    border-radius: 1rem;
-    position: relative;
-    transition: height 0.5s;
-    animation: fade-in 0.75s 2s ease-out forwards;
-}
-.skill-tile img {
-    object-fit: contain;
-    margin-top: 1rem;
-    height: 6rem;
-    border-radius: 0.5rem;
-}
-.skill-tile h2 {
-    margin: 0;
-    width: 80%;
-}
-.skill-tile .expanded {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    gap: 0.1rem;
-    align-items: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-.skill-tile .expanded hr {
-    width: 80%;
-    margin: 0;
-}
-.level {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 80%;
-}
-.level h3 {
-    font-size: 1rem;
-    width: 5rem;
-}
-.level h2 {
-    font-size: 3rem;
-    width: 3rem;
-}
-.progress {
-    width: 80%;
-    height: 0.5rem;
-    background-color: #E2E2E2;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-}
-.progress div {
-    background-color: #8CA2F0;
-    border-radius: inherit;
-    height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        top: -1rem;
+        opacity: 0;
+        width: 10rem;
+        height: 10rem;
+        background-color: var(--secondary);
+        padding: 0;
+        border: 0.1rem solid var(--tertiary);
+        border-radius: 1rem;
+        position: relative;
+        overflow: hidden;
+        transition: height 0.5s;
+        animation: fade-in-down 0.75s 2s ease-out forwards;
+        & img {
+            object-fit: contain;
+            margin-top: 1rem;
+            height: 6rem;
+            border-radius: 0.5rem;
+            z-index: 1;
+        }
+        & h2 {
+            margin: 0;
+            width: 80%;
+            z-index: 1;
+        }
+        & .expanded {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 0.1rem;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+            & hr {
+                width: 80%;
+                margin: 0;
+            }
+            & .level {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 80%;
+                & h2 {
+                    font-size: 3rem;
+                    width: 3rem;
+                }
+                & h3 {
+                    font-size: 1rem;
+                    width: 5rem;
+                }
+            }
+            & .progress {
+                width: 80%;
+                height: 0.5rem;
+                background-color: #E2E2E2;
+                border-radius: 1rem;
+                margin-bottom: 1rem;
+                & .current-progress {
+                    height: 100%;
+                    border-radius: inherit;
+                    & div {
+                        background-color: var(--accent);
+                        border-radius: inherit;
+                        height: 100%;
+                        width: 0%;
+                        transition: width 0.5s 0.25s;
+                    }
+                }
+                
+            }
+        }
 }
 .skill-tile:hover {
     height: 15rem;
-}
-.skill-tile .expanded:hover {
-    opacity: 1;
-}
-
-@media only screen and (min-width: 992px) {
-    body, html {
-        font-size: 20px;
-   }
+    & .expanded {
+        opacity: 1;
+    }
+    & .progress {
+        & .current-progress {
+            & div {
+                width: 100%;
+            }
+        }
+    }
 }
