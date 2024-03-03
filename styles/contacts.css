@@ -78,6 +78,7 @@ main {
         button:hover {
             background-color: var(--tertiary);
             color: var(--secondary);
+            cursor: pointer;
         }
         button:active {
             background-color: var(--secondary);
