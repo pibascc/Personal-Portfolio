@@ -12,20 +12,18 @@ main {
     margin: 0 auto;
 }
 .navblock {
-    position: relative;
-    top: -1rem;
+    position: relative;  
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin: 1rem;
     gap: 1rem;
-    opacity: 0;
-    animation: fade-in-down 0.75s 2.25s ease-out forwards;
     .navtile {
         display: flex;
         flex-direction: column;
         background-color: var(--secondary);
         position: relative;
+        top: -1rem;
         width: 6rem;
         height: 4rem;
         border: 0.1rem solid var(--tertiary);
@@ -33,7 +31,9 @@ main {
         color: var(--tertiary);
         overflow: hidden;
         text-decoration: none;
+        opacity: 0;
         transition: height 0.3s;
+        animation: fade-in-down 0.75s ease-out forwards;
         span {
             font-size: 2rem;
             margin: 1rem;

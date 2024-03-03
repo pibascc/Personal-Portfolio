@@ -2,8 +2,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0;
-    margin-bottom: 6rem;
+    padding: 2rem 0;
+    margin-bottom: 4.5rem;
     min-height: 70vh;
 }
 .skill-block {
@@ -93,7 +93,6 @@ main {
                     transition: width 0.5s 0.25s;
                 }
             }
-            
         }
     }
 }

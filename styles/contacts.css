@@ -1,0 +1,93 @@
+.page-title h1 {
+    font-size: 4rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 6rem;
+    min-height: 70vh;
+}
+.contacts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 90%;
+    margin: auto;       
+}
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    top: -1rem;
+    opacity: 0;
+    width: 20rem;
+    height: 15rem;
+    background-color: var(--secondary);
+    padding: 0;
+    border: 0.1rem solid var(--tertiary);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: height 0.5s;
+    animation: fade-in-down 0.75s ease-out forwards;
+    img {
+        object-fit: contain;
+        margin: 2.5rem;
+        height: 5rem;
+        z-index: 1;
+    }
+    span {
+        font-size: 5rem;
+        margin: 2.5rem;
+        z-index: 1;
+    }
+    h2 {
+        font-size: 1.75rem;
+        margin: 0;
+        width: 80%;
+        z-index: 1;
+    }
+    .expanded {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.1rem;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+        button {
+            font-size: 1.5rem;
+            height: 2.5rem;
+            background-color: var(--secondary);
+            color: var(--tertiary);
+            border: 0.1rem solid var(--tertiary);
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        button:hover {
+            background-color: var(--tertiary);
+            color: var(--secondary);
+        }
+        button:active {
+            background-color: var(--secondary);
+            color: var(--tertiary);
+        }
+    }
+}
+.contact:hover {
+    height: 17.5rem;
+    .expanded {
+        opacity: 1;
+    }
+}
