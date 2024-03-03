@@ -39,7 +39,7 @@ html, body {
 }
 @keyframes fade-in-left {
     from {
-        left: -1rem;
+        left: -2rem;
         opacity: 0;
     }
     to {
@@ -49,7 +49,7 @@ html, body {
 }
 @keyframes fade-in-right {
     from {
-        right: -1rem;
+        right: -2rem;
         opacity: 0;
     }
     to {
@@ -140,7 +140,7 @@ header {
 }
 .banner {
     width: 100%;
-    filter: brightness(0.5);
+    filter: brightness(0.5) blur(2px);
     object-fit: cover;
 }
 .page-title-cont {

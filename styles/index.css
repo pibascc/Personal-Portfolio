@@ -21,7 +21,7 @@ main {
     gap: 1rem;
     opacity: 0;
     animation: fade-in-down 0.75s 2.25s ease-out forwards;
-    & .navtile {
+    .navtile {
         display: flex;
         flex-direction: column;
         background-color: var(--secondary);
@@ -34,12 +34,12 @@ main {
         overflow: hidden;
         text-decoration: none;
         transition: height 0.3s;
-        & span {
+        span {
             font-size: 2rem;
             margin: 1rem;
             z-index: 1;
         }
-        & .expanded {
+        .expanded {
             display: flex;
             flex-direction: column;
             justify-content: end;
@@ -54,7 +54,7 @@ main {
             }
         }
     }
-    & .navtile:hover {
+    .navtile:hover {
         height: 5rem;
         & .expanded {
             opacity: 1;
@@ -90,11 +90,11 @@ main {
     margin: 0 auto;
     padding: 0 1rem;
     animation: fade-in-expand 2s 1s forwards;
-    & h2, & img {
+    h2, img {
         opacity: 0;
         animation: fade-in 0.75s 2.5s forwards;
     }
-    & h2 {
+    h2 {
         margin: 0;
         font-size: 1.5rem;
         height: fit-content;
@@ -123,11 +123,11 @@ main {
     opacity: 0;
     overflow: hidden;
     animation: fade-in-down 0.75s 3s ease-out forwards;
-    & h1 {
+    h1 {
         font-size: 3rem;
         z-index: 1;
     }
-    & .expanded {
+    .expanded {
         display: flex;
         flex-direction: column;
         justify-content: end;
@@ -137,10 +137,10 @@ main {
         height: 100%;
         opacity: 0;
         transition: opacity 0.5s;
-        & hr, & p {
+        hr, p {
             width: 90%;
         }
-        & p {
+        p {
             padding: 0 1rem;
             margin-bottom: 2rem;
         }       
@@ -148,7 +148,7 @@ main {
 }
 .bio:hover {
     height: 14rem;
-    & .expanded {
+    .expanded {
         opacity: 1;
     }
 }
