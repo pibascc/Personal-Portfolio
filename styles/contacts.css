@@ -8,8 +8,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-    width: 90%;
-    margin: auto;       
+    width: 90%;    
 }
 .contact {
     display: flex;
