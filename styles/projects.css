@@ -2,12 +2,6 @@
     font-size: 4rem;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0;
-    margin-bottom: 5rem;
-}
 .projects {
     width: 30rem;
     display: flex;
