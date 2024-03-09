@@ -10,6 +10,7 @@
 }
 
 html, body {
+    position: relative;
     margin: 0;
     padding: 0;
     background-color: var(--secondary);
@@ -114,7 +115,7 @@ header {
     align-items: center;
     position: fixed;
     top: 0;
-    z-index: 999;
+    z-index: 100;
     width: 100%;
     height: 2.5rem;
     background-color: var(--secondary);
@@ -192,6 +193,32 @@ footer {
         font-size: 0.75rem;
         margin: 1rem 0;
     }
+}
+
+@keyframes click-effect {
+    from {
+        opacity: 1;
+        transform: scale(0);
+    }
+    to {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+.click-effect {
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    background-color: transparent;
+    border: 0.1rem solid var(--accent);
+    border-radius: 50%;
+    opacity: 1;
+    z-index: 999;
+    margin-left: -2.5rem;
+    margin-top: -2.5rem;
+    transform-origin: center;
+    pointer-events: none;
+    animation: click-effect 0.5s ease-out forwards;
 }
 
 @media only screen and (min-width: 992px) {

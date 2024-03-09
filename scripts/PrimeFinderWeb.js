@@ -8,12 +8,26 @@ function uiSound(sound) {
     .then(() => { sound.muted = false; })
     .catch(() => { sound.muted = true; });
 }
+function clickEffect(x, y) {
+  let effect = document.createElement('div');
+  let style = effect.style;
+  style.left = x + 'px';
+  style.top = y + 'px';
+  effect.classList.add('click-effect');
+  document.body.appendChild(effect);
+  setTimeout(() => effect.remove(), 500);
+}
 
 const primeSound = new Audio('../media/ui-sounds/success.ogg');
 const notPrimeSound = new Audio('../media/ui-sounds/fail.ogg');
 const errorSound = new Audio('../media/ui-sounds/error.ogg');
 const tapSound = new Audio('../media/ui-sounds/tap.ogg');
-document.addEventListener('click', () => uiSound(tapSound));
+document.addEventListener('click', event => {
+  uiSound(tapSound);
+  let x = event.pageX;
+  let y = event.pageY;
+  clickEffect(x, y);
+});
 
 function clearResult() {
   result.textContent = '';
