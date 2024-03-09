@@ -10,7 +10,6 @@
 }
 
 html, body {
-    position: relative;
     margin: 0;
     padding: 0;
     background-color: var(--secondary);
@@ -18,8 +17,11 @@ html, body {
     color: var(--tertiary);
     font-size: 10px;
     text-align: center;
+}
+body {
     overflow-x: hidden;
 }
+
 @keyframes fade-in {
     from {
         opacity: 0;

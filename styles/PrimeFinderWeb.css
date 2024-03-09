@@ -6,6 +6,9 @@ body, html {
     text-align: center;
     background-color: black;
     color: white;
+
+}
+body {
     overflow-x: hidden;
 }
 
