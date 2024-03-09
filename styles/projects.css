@@ -76,7 +76,7 @@
             min-width: 7.5rem;
             height: 3rem;
             font-size: 1.5rem;
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
             color: var(--tertiary);
             margin-bottom: 2rem;
             background-color: var(--quaternary);
