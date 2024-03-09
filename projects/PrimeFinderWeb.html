@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="PrimeFinderWeb"> 
+    <meta property="og:title" content="PrimeFinderWeb">
     <meta property="og:image" content="https://personal-portfolio-aquino.pages.dev/media/link-preview.png">
     <title>PrimeFinder</title>
     <link rel="icon" type="image/x-icon" href="../media/icons/PrimeFinderWeb.ico">
     <link rel="stylesheet" href="../styles/PrimeFinderWeb.css">
-    <script src="../scripts/PrimeFinderWeb.js"></script>
-</head>
-<body>
+  </head>
+
+  <body>
     <header>
-        <h1>PrimeFinder</h1>
+      <h1>PrimeFinder</h1>
     </header>
     <main>
-        <fieldset id="input_field">
-            <legend>Enter a number:</legend>
-            <input type="number" id="number_input" oninput="clearResult()">
-            <button onclick="process()">Check</button>
-        </fieldset>
-        <div id="result_field">
-            <h2 id="main_result"></h2>
-            <p id="result_caption"><noscript>JavaScript disabled or not supported</noscript></p>
-            <p id="result_divisor"></p>
-        </div>
+      <fieldset id="input_field">
+        <legend>Enter a number:</legend>
+        <input type="number" id="number_input" oninput="clearResult()">
+        <button onclick="process()">Check</button>
+      </fieldset>
+      <div id="result_field">
+        <h2 id="main_result"></h2>
+        <p id="result_caption"><noscript>JavaScript disabled or not supported</noscript></p>
+        <p id="result_divisor"></p>
+      </div>
     </main>
-</body>
+    <script src="../scripts/PrimeFinderWeb.js"></script>
+  </body>
+
 </html>

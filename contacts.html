@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Aquino's Personal Portfolio"> 
+    <meta property="og:title" content="Aquino's Personal Portfolio">
     <meta property="og:description" content="My personal portfolio.">
     <meta property="og:image" content="https://personal-portfolio-aquino.pages.dev/media/link-preview.png">
-    <meta property="og:url" content="https://personal-portfolio-aquino.pages.dev"> 
+    <meta property="og:url" content="https://personal-portfolio-aquino.pages.dev">
     <title>Personal Portfolio - Aquino</title>
     <link rel="icon" type="image/x-icon" href="media/icons/personal-portfolio.ico">
     <link rel="stylesheet" href="styles/personal-portfolio.css">
     <link rel="stylesheet" href="styles/contacts.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   </head>
+
   <body>
     <header>
-      <nav class ="navbar">
-        <a class="navlink" href="index.html">Home</a>
-        <a class="navlink" href="skills.html">Skills</a>
-        <a class="navlink" href="projects.html">Projects</a>
-        <a class="navlink" href="certifications.html">Certifications</a>
-        <a class="navlink" href="contacts.html">Contacts</a>
+      <nav class="navbar">
+        <a class="navlink s-hover" href="index.html">Home</a>
+        <a class="navlink s-hover" href="skills.html">Skills</a>
+        <a class="navlink s-hover" href="projects.html">Projects</a>
+        <a class="navlink s-hover" href="certifications.html">Certifications</a>
+        <a class="navlink s-hover" href="contacts.html">Contacts</a>
       </nav>
       <img src="media/banners/contacts-page-banner.png" class="banner">
       <div class="streaks-left">
@@ -53,28 +56,41 @@
     </header>
     <main>
       <div class="contacts">
-        <div class="contact" id="facebook-profile" style="animation-delay: 2s;">
+        <div class="contact s-hover" id="facebook-profile" style="animation-delay: 2s;">
           <img src="media/icons/Facebook_Logo_Primary.png">
           <h2>Facebook Profile</h2>
           <div class="expanded">
-            <a href="https://www.facebook.com/princeian.aquino" target="_blank"><button>Visit</button></a>
+            <a href="https://www.facebook.com/princeian.aquino" target="_blank">
+              <button class="s-hover s-ding">Visit</button>
+            </a>
           </div>
         </div>
-        <div class="contact" id="mobile-number" style="animation-delay: 2.1s;">
+        <div class="contact s-hover" id="mobile-number" style="animation-delay: 2.1s;">
           <span class="material-symbols-outlined">call</span>
           <h2>Mobile Number</h2>
           <div class="expanded">
-            <button onclick="navigator.clipboard.writeText('09810723855'); alert('Copied')">Copy</button>
+            <button class="s-hover s-ding" onclick="
+              navigator.clipboard.writeText('09810723855');
+              setTimeout(() => { alert('Copied'); }, 250);">
+              Copy
+            </button>
           </div>
         </div>
-        <div class="contact" id="github-profile" style="animation-delay: 2.2s;">
+        <div class="contact s-hover" id="github-profile" style="animation-delay: 2.2s;">
           <img src="media/icons/github-mark-white.png">
           <h2>Github Profile</h2>
           <div class="expanded">
-            <a href="https://github.com/pibascc" target="_blank"><button>Visit</button></a>
+            <a href="https://github.com/pibascc" target="_blank">
+              <button class="s-hover s-ding">Visit</button>
+            </a>
           </div>
         </div>
       </div>
     </main>
+    <footer>
+      <p>Using Material Design sounds and icons by Google</p>
+    </footer>
+    <script src="scripts/personal-portfolio.js"></script>
   </body>
+
 </html>

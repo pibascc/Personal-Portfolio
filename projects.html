@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Aquino's Personal Portfolio"> 
+    <meta property="og:title" content="Aquino's Personal Portfolio">
     <meta property="og:description" content="My personal portfolio.">
     <meta property="og:image" content="https://personal-portfolio-aquino.pages.dev/media/link-preview.png">
-    <meta property="og:url" content="https://personal-portfolio-aquino.pages.dev"> 
+    <meta property="og:url" content="https://personal-portfolio-aquino.pages.dev">
     <title>Personal Portfolio - Aquino</title>
     <link rel="icon" type="image/x-icon" href="media/icons/personal-portfolio.ico">
     <link rel="stylesheet" href="styles/personal-portfolio.css">
     <link rel="stylesheet" href="styles/projects.css">
   </head>
+
   <body>
     <header>
-      <nav class ="navbar">
-        <a class="navlink" href="index.html">Home</a>
-        <a class="navlink" href="skills.html">Skills</a>
-        <a class="navlink" href="projects.html">Projects</a>
-        <a class="navlink" href="certifications.html">Certifications</a>
-        <a class="navlink" href="contacts.html">Contacts</a>
+      <nav class="navbar">
+        <a class="navlink s-hover" href="index.html">Home</a>
+        <a class="navlink s-hover" href="skills.html">Skills</a>
+        <a class="navlink s-hover" href="projects.html">Projects</a>
+        <a class="navlink s-hover" href="certifications.html">Certifications</a>
+        <a class="navlink s-hover" href="contacts.html">Contacts</a>
       </nav>
       <img src="media/banners/projects-page-banner.png" class="banner">
       <div class="streaks-left">
@@ -53,72 +55,85 @@
     <main>
       <div class="projects">
         <div class="project" id="PrimeFinderWeb" style="animation-delay: 2s;">
-          <label>
-              <input type="checkbox">
-              <h2>PrimeFinderWeb</h2>
+          <label class="s-click">
+            <input type="checkbox">
+            <h2>PrimeFinderWeb</h2>
           </label>
           <div class="expanded">
-              <video controls muted loop onmouseover="this.play()" onmouseout="this.pause()">
-                  <source src="media/project-previews/PrimeFinderWeb-preview.mp4" type="video/mp4">
-              </video>
-              <p>My web-based prime checker tool made with HTML, CSS, and JavaScript.</p>
-              <a href="projects/PrimeFinderWeb.html" target="_blank"><button>Visit</button></a>
+            <video controls muted loop class="s-hover" onmouseover="this.play()" onmouseout="this.pause()">
+              <source src="media/project-previews/PrimeFinderWeb-preview.mp4" type="video/mp4">
+            </video>
+            <p>My web-based prime checker tool made with HTML, CSS, and JavaScript.</p>
+            <a href="projects/PrimeFinderWeb.html" target="_blank">
+              <button class="s-hover s-ding">View</button>
+            </a>
           </div>
           <div class="languages">
-              <img src="media/icons/HTML5_Logo.png">
-              <img src="media/icons/CSS3_logo.png">
-              <img src="media/icons/js.png">
-          </div>    
+            <img src="media/icons/HTML5_Logo.png">
+            <img src="media/icons/CSS3_logo.png">
+            <img src="media/icons/js.png">
+          </div>
         </div>
         <div class="project" id="PrimeFinderCLI" style="animation-delay: 2.2s;">
-          <label>
-              <input type="checkbox">
-              <h2>PrimeFinderCLI</h2>
+          <label class="s-click">
+            <input type="checkbox">
+            <h2>PrimeFinderCLI</h2>
           </label>
           <div class="expanded">
-              <video controls muted loop onmouseover="this.play()" onmouseout="this.pause()">
-                  <source src="media/project-previews/PrimeFinderCLI-preview.mp4" type="video/mp4">
-              </video>
-              <p>My original PrimeFinder tool made with C++ for the Windows command line.</p>
-              <a href="projects/PrimeFinder.exe" download><button>Download for Windows</button></a>
+            <video controls muted loop class="s-hover" onmouseover="this.play()" onmouseout="this.pause()">
+              <source src="media/project-previews/PrimeFinderCLI-preview.mp4" type="video/mp4">
+            </video>
+            <p>My original PrimeFinder tool made with C++ for the Windows command line.</p>
+            <a href="projects/PrimeFinder.exe" download>
+              <button class="s-hover s-ding">Download for Windows</button>
+            </a>
           </div>
           <div class="languages">
-              <img src="media/icons/cpp_logo.png">
-          </div>  
+            <img src="media/icons/cpp_logo.png">
+          </div>
         </div>
         <div class="project" id="PassGen" style="animation-delay: 2.4s;">
-          <label>
-              <input type="checkbox">
-              <h2>PassGen</h2>
+          <label class="s-click">
+            <input type="checkbox">
+            <h2>PassGen</h2>
           </label>
           <div class="expanded">
-              <video controls muted loop onmouseover="this.play()" onmouseout="this.pause()">
-                  <source src="media/project-previews/PassGen-preview.mp4" type="video/mp4">
-              </video>
-              <p>My basic password generator made with C++.</p>
-              <a href="projects/PassGen.exe" download><button>Download for Windows</button></a>
+            <video controls muted loop class="s-hover" onmouseover="this.play()" onmouseout="this.pause()">
+              <source src="media/project-previews/PassGen-preview.mp4" type="video/mp4">
+            </video>
+            <p>My basic password generator made with C++.</p>
+            <a href="projects/PassGen.exe" download>
+              <button class="s-hover s-ding">Download for Windows</button>
+            </a>
           </div>
           <div class="languages">
-              <img src="media/icons/cpp_logo.png">
-          </div>  
+            <img src="media/icons/cpp_logo.png">
+          </div>
         </div>
         <div class="project" id="GarbageCipher" style="animation-delay: 2.6s;">
-          <label>
-              <input type="checkbox">
-              <h2>GarbageCipher</h2>
+          <label class="s-click">
+            <input type="checkbox">
+            <h2>GarbageCipher</h2>
           </label>
           <div class="expanded">
-              <video controls muted loop onmouseover="this.play()" onmouseout="this.pause()">
-                  <source src="media/project-previews/GarbageCIpher-preview.mp4" type="video/mp4">
-              </video>
-              <p>My simple cipher that converts plain text into a random string of characters.</p>
-              <a href="projects/GarbageCipher.exe" download><button>Download for Windows</button></a>
+            <video controls muted loop class="s-hover" onmouseover="this.play()" onmouseout="this.pause()">
+              <source src="media/project-previews/GarbageCIpher-preview.mp4" type="video/mp4">
+            </video>
+            <p>My simple cipher that converts plain text into a random string of characters.</p>
+            <a href="projects/GarbageCipher.exe" download>
+              <button class="s-hover s-ding">Download for Windows</button>
+            </a>
           </div>
           <div class="languages">
-              <img src="media/icons/cpp_logo.png">
-          </div>  
+            <img src="media/icons/cpp_logo.png">
+          </div>
         </div>
       </div>
     </main>
+    <footer>
+      <p>Using Material Design sounds and icons by Google</p>
+    </footer>
+    <script src="scripts/personal-portfolio.js"></script>
   </body>
+
 </html>

@@ -38,7 +38,7 @@
             width: 0;
             height: 0;
         }
-        h2 {            
+        h2 {
             font-size: 2rem;
             margin: 0;
         }
@@ -60,7 +60,7 @@
         transition: opacity 0.5s ease-in;
         video {
             object-fit: contain;
-            height: 15rem;          
+            height: 15rem;
             border-radius: 0.5rem;
             transition: border 0.25s;
             border: 0 solid transparent;
@@ -78,19 +78,20 @@
             padding: 0.5rem;
             color: var(--tertiary);
             margin-bottom: 2rem;
-            background-color: var(--secondary);
-            border: 0.1rem solid var(--tertiary);
+            background-color: var(--quaternary);
+            border: none;
             border-radius: 1rem;
-            transition: color 0.25s, background-color 0.25s;
+            transition: color 0.25s, background-color 0.25s, border 0.25s;
         }
         button:hover {
-            color: var(--secondary);
+            color: var(--quaternary);
             background-color: var(--tertiary);
             cursor: pointer;
         }
         button:active {
             color: var(--tertiary);
-            background-color: var(--secondary);
+            background-color: var(--primary);
+            border: 0.1rem solid var(--quaternary);
         }
     }
     .languages {
@@ -107,7 +108,7 @@
             height: 100%;
         }
     }
-    
+
 }
 .project:has(input:checked) {
     height: 35rem;
@@ -132,10 +133,10 @@
         }
         .expanded video {
             height: 20rem;
-        }        
+        }
     }
     .project:has(input:checked) {
-        height: 40rem;       
+        height: 40rem;
     }
 
 }
