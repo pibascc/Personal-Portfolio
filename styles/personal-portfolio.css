@@ -4,6 +4,9 @@
     --tertiary: white;
     --quaternary: #484C4C;
     --accent: #8CA2F0;
+    font-size: 10px;
+    font-family: sans-serif;
+    text-align: center;
 }
 * {
     box-sizing: border-box;
@@ -12,14 +15,12 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-color: var(--secondary);
-    font-family: sans-serif;
-    color: var(--tertiary);
-    font-size: 10px;
-    text-align: center;
+
 }
 body {
     overflow-x: hidden;
+    background-color: var(--secondary);
+    color: var(--tertiary);
 }
 
 @keyframes fade-in {
@@ -197,6 +198,16 @@ footer {
     }
 }
 
+#animation-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1000;
+    pointer-events: none;
+}
 @keyframes click-effect {
     from {
         opacity: 1;
@@ -209,30 +220,24 @@ footer {
 }
 .click-effect {
     position: absolute;
-    width: 5rem;
-    height: 5rem;
+    width: 100px;
+    height: 100px;
     background-color: transparent;
-    border: 0.1rem solid var(--accent);
+    border: 2px solid var(--accent);
     border-radius: 50%;
     opacity: 1;
-    z-index: 999;
-    margin-left: -2.5rem;
-    margin-top: -2.5rem;
+    margin-left: -50px;
+    margin-top: -50px;
     transform-origin: center;
     pointer-events: none;
     animation: click-effect 0.5s ease-out forwards;
 }
 
 @media only screen and (min-width: 992px) {
-    body, html {
+    :root {
         font-size: 20px;
     }
     .streak {
         height: 1rem;
-    }
-    .footer {
-        p {
-            font-size: 1.5rem;
-        }
     }
 }

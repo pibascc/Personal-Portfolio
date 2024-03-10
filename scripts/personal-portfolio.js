@@ -5,21 +5,24 @@ function uiSound(sound) {
     .catch(() => { sound.muted = true; });
 }
 
+let animArea = document.createElement('div');
+animArea.id = 'animation-area';
+document.body.appendChild(animArea);
 function clickEffect(x, y) {
   let effect = document.createElement('div');
   let style = effect.style;
   style.left = x + 'px';
   style.top = y + 'px';
   effect.classList.add('click-effect');
-  document.body.appendChild(effect);
+  document.getElementById('animation-area').appendChild(effect);
   setTimeout(() => effect.remove(), 500);
 }
 
 const tapSound = new Audio('media/ui-sounds/tap.ogg');
 document.addEventListener('click', event => {
   uiSound(tapSound);
-  let x = event.pageX;
-  let y = event.pageY;
+  let x = event.clientX;
+  let y = event.clientY;
   clickEffect(x, y);
 });
 
