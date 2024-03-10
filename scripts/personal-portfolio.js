@@ -40,3 +40,8 @@ const dingSound = new Audio('media/ui-sounds/ding.ogg');
 document.querySelectorAll('.s-ding').forEach(element => {
   element.addEventListener('click', () => uiSound(dingSound));
 });
+
+const loadSound = new Audio('media/ui-sounds/load.ogg');
+document.querySelectorAll('.s-load').forEach(element => {
+  element.addEventListener('mouseenter', () => setTimeout(() => uiSound(loadSound), 250));
+});

@@ -81,7 +81,7 @@
                     border-radius: inherit;
                     height: 100%;
                     width: 0%;
-                    transition: width 0.5s 0.25s;
+                    transition: width 0.5s 0.25s ease-out;
                 }
             }
         }
