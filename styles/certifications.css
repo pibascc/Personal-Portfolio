@@ -23,7 +23,7 @@
     border: 0.1rem solid var(--tertiary);
     border-radius: 0.5rem;
     background-color: var(--secondary);
-    padding: 0.5rem;      
+    padding: 0.5rem;
     animation: fade-in-down 0.75s ease-out forwards;
     h2 {
         color: var(--tertiary);
@@ -47,9 +47,16 @@
     }
     img {
         max-width: 120%;
-        max-height: 120%;        
+        max-height: 120%;
         height: 120%;
         filter: brightness(0.5);
     }
-    
+}
+.certificate:active {
+    img {
+        max-width: 110%;
+        max-height: 110%;
+        height: 110%;
+        filter: brightness(0.1);
+    }
 }

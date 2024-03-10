@@ -28,12 +28,13 @@
         overflow: hidden;
         text-decoration: none;
         opacity: 0;
-        transition: height 0.3s;
+        transition: height 0.3s, background-color 0.25s, color 0.25s;
         animation: fade-in-down 0.75s ease-out forwards;
         span {
             font-size: 2rem;
             margin: 1rem;
             z-index: 1;
+            transition: font-size 0.25s;
         }
         .expanded {
             display: flex;
@@ -55,6 +56,10 @@
         & .expanded {
             opacity: 1;
         }
+    }
+    .navtile:active {
+        color: var(--secondary);
+        background-color: var(--tertiary);
     }
 }
 .about-me {
