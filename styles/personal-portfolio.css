@@ -193,7 +193,7 @@ footer {
     align-items: center;
     p {
         color: var(--quaternary);
-        font-size: 0.5rem;
+        font-size: 0.75rem;
         margin: 1rem 0;
     }
 }
