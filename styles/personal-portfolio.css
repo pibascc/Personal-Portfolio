@@ -23,6 +23,7 @@ body {
     color: var(--tertiary);
 }
 
+/* #region Main Animations */
 @keyframes fade-in {
     from {
         opacity: 0;
@@ -80,36 +81,13 @@ body {
         width: 20%;
     }
 }
+/* #endregion */
+
 header {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 2.5rem;
-}
-.streaks-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    position: absolute;
-    gap: 0.5rem;
-    width: 100%;
-}
-.streaks-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    position: absolute;
-    gap: 0.5rem;
-    width: 100%;
-}
-.streak {
-    background-color: var(--accent);
-    width: 0%;
-    height: 0.5rem;
-    opacity: 0.5;
-    animation: streak 1s infinite alternate;
 }
 .navbar {
     display: flex;
@@ -203,6 +181,33 @@ hr {
     border-top: 1px solid var(--tertiary);
 }
 
+/* #region Animation Effects */
+.streaks-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    gap: 0.5rem;
+    width: 100%;
+}
+.streaks-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    gap: 0.5rem;
+    width: 100%;
+}
+.streak {
+    background-color: var(--accent);
+    width: 0%;
+    height: 0.5rem;
+    opacity: 0.5;
+    animation: streak 1s infinite alternate;
+}
+
 #animation-area {
     position: fixed;
     top: 0;
@@ -237,6 +242,7 @@ hr {
     pointer-events: none;
     animation: click-effect 0.5s ease-out forwards;
 }
+/* #endregion */
 
 @media only screen and (min-width: 992px) {
     :root {

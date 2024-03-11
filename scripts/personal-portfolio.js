@@ -1,16 +1,18 @@
+// #region Animation Effects
 let animArea = document.createElement('div');
 animArea.id = 'animation-area';
 document.body.appendChild(animArea);
 function clickEffect(x, y) {
   let effect = document.createElement('div');
-  let style = effect.style;
-  style.left = x + 'px';
-  style.top = y + 'px';
+  effect.style.left = `${x}px`;
+  effect.style.top = `${y}px`;
   effect.classList.add('click-effect');
   document.getElementById('animation-area').appendChild(effect);
   setTimeout(() => effect.remove(), 500);
 }
+// #endregion
 
+// #region Sounds
 function uiSound(sound) {
   sound.currentTime = 0;
   sound.play()
@@ -18,29 +20,34 @@ function uiSound(sound) {
     .catch(() => { sound.muted = true; });
 }
 
+// Tap Sound
 const tapSound = new Audio('media/ui-sounds/tap.ogg');
 document.addEventListener('click', event => {
   uiSound(tapSound);
   let x = event.clientX;
   let y = event.clientY;
-  clickEffect(x, y);
+  clickEffect(x, y); // Tap Effect
 });
 
+// Hover Sound
 const hoverSound = new Audio('media/ui-sounds/hover.ogg');
 document.querySelectorAll('.s-hover').forEach(element => {
   element.addEventListener('mouseenter', () => uiSound(hoverSound));
 });
 
+// Click Sound
 const clickSound = new Audio('media/ui-sounds/click.ogg');
 document.querySelectorAll('.s-click').forEach(element => {
   element.addEventListener('click', () => uiSound(clickSound));
 });
 
+// Ding Sound
 const dingSound = new Audio('media/ui-sounds/ding.ogg');
 document.querySelectorAll('.s-ding').forEach(element => {
   element.addEventListener('click', () => uiSound(dingSound));
 });
 
+// Loading Sound
 const loadSound = new Audio('media/ui-sounds/load.ogg');
 document.querySelectorAll('.s-load').forEach(element => {
   let timer;
@@ -51,3 +58,4 @@ document.querySelectorAll('.s-load').forEach(element => {
     clearTimeout(timer);
   });
 });
+// #endregion
