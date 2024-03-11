@@ -1,10 +1,3 @@
-function uiSound(sound) {
-  sound.currentTime = 0;
-  sound.play()
-    .then(() => { sound.muted = false; })
-    .catch(() => { sound.muted = true; });
-}
-
 let animArea = document.createElement('div');
 animArea.id = 'animation-area';
 document.body.appendChild(animArea);
@@ -16,6 +9,13 @@ function clickEffect(x, y) {
   effect.classList.add('click-effect');
   document.getElementById('animation-area').appendChild(effect);
   setTimeout(() => effect.remove(), 500);
+}
+
+function uiSound(sound) {
+  sound.currentTime = 0;
+  sound.play()
+    .then(() => { sound.muted = false; })
+    .catch(() => { sound.muted = true; });
 }
 
 const tapSound = new Audio('media/ui-sounds/tap.ogg');
@@ -43,5 +43,11 @@ document.querySelectorAll('.s-ding').forEach(element => {
 
 const loadSound = new Audio('media/ui-sounds/load.ogg');
 document.querySelectorAll('.s-load').forEach(element => {
-  element.addEventListener('mouseenter', () => setTimeout(() => uiSound(loadSound), 250));
+  let timer;
+  element.addEventListener('mouseover', () => {
+    timer = setTimeout(() => uiSound(loadSound), 250);
+  });
+  element.addEventListener('mouseout', () => {
+    clearTimeout(timer);
+  });
 });
