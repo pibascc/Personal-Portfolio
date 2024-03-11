@@ -50,12 +50,17 @@ document.querySelectorAll('.s-ding').forEach(element => {
 // Loading Sound
 const loadSound = new Audio('media/ui-sounds/load.ogg');
 document.querySelectorAll('.s-load').forEach(element => {
-  let timer;
+  let loading = false;
   element.addEventListener('mouseover', () => {
-    timer = setTimeout(() => uiSound(loadSound), 250);
+    loading = true;
   });
   element.addEventListener('mouseout', () => {
-    clearTimeout(timer);
+    loading = false;
+  });
+  element.querySelector('.progress').addEventListener('transitionstart', () => {
+    if (loading) {
+      uiSound(loadSound)
+    }
   });
 });
 // #endregion
