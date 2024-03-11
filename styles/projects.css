@@ -62,7 +62,7 @@
         width: 100%;
         margin: 0;
         opacity: 0;
-        transition: opacity 0.5s ease-in;
+        transition: opacity 0.5s ease-in, margin 0.5s;
         video {
             object-fit: contain;
             height: 15rem;

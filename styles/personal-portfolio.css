@@ -193,9 +193,14 @@ footer {
     align-items: center;
     p {
         color: var(--quaternary);
-        font-size: 0.75rem;
+        font-size: 0.5rem;
         margin: 1rem 0;
     }
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--tertiary);
 }
 
 #animation-area {
