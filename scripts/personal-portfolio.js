@@ -2,13 +2,26 @@
 let animArea = document.createElement('div');
 animArea.id = 'animation-area';
 document.body.appendChild(animArea);
+
+// Click Ripple Effect
 function clickEffect(x, y) {
   let effect = document.createElement('div');
   effect.style.left = `${x}px`;
   effect.style.top = `${y}px`;
   effect.classList.add('click-effect');
-  document.getElementById('animation-area').appendChild(effect);
-  setTimeout(() => effect.remove(), 500);
+  effect.addEventListener('animationend', () => effect.remove());
+  animArea.appendChild(effect);
+}
+
+// Custom Alert
+function uiAlert(message) {
+  let alertBox = document.createElement('div');
+  let alertText = document.createElement('p');
+  alertBox.classList.add('ui-alert');
+  alertText.textContent = message;
+  alertBox.appendChild(alertText);
+  alertBox.addEventListener('animationend', () => alertBox.remove());
+  animArea.appendChild(alertBox);
 }
 // #endregion
 

@@ -12,14 +12,14 @@ function uiSound(sound) {
 let animArea = document.createElement('div');
 animArea.id = 'animation-area';
 document.body.appendChild(animArea);
+
 function clickEffect(x, y) {
   let effect = document.createElement('div');
-  let style = effect.style;
-  style.left = x + 'px';
-  style.top = y + 'px';
+  effect.style.left = `${x}px`;
+  effect.style.top = `${y}px`;
   effect.classList.add('click-effect');
-  document.getElementById('animation-area').appendChild(effect);
-  setTimeout(() => effect.remove(), 500);
+  effect.addEventListener('animationend', () => effect.remove());
+  animArea.appendChild(effect);
 }
 
 const primeSound = new Audio('../media/ui-sounds/success.ogg');
