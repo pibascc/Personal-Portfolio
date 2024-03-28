@@ -77,3 +77,14 @@ document.querySelectorAll('.s-load').forEach(element => {
   });
 });
 // #endregion
+
+document.querySelectorAll('img').forEach(element => {
+  element.addEventListener('dragstart', event => {
+    event.preventDefault();
+  });
+});
+document.querySelectorAll('a').forEach(element => {
+  element.addEventListener('dragstart', event => {
+    event.preventDefault();
+  });
+});
