@@ -68,7 +68,7 @@
             height: 15rem;
             border-radius: 0.5rem;
             transition: border 0.25s;
-            border: 0 solid transparent;
+            border: 1px solid transparent;
         }
         video:hover {
             border: 1px solid var(--tertiary);
@@ -78,6 +78,10 @@
             width: 90%;
         }
 
+        a {
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+        }
         button {
             min-width: 7.5rem;
             height: 3rem;
@@ -85,9 +89,8 @@
             padding: 0.5rem 1rem;
             color: var(--tertiary);
             background-color: var(--quaternary);
-            border: none;
+            border: 0.1rem solid transparent;
             border-radius: 0.5rem;
-            margin-bottom: 1rem;
             transition: color 0.25s, background-color 0.25s, border 0.25s;
         }
         button:hover {
