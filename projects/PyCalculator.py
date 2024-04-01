@@ -23,7 +23,7 @@ class Calculator:
     def divide(cls, num1 = 1, num2 = 1):
         return num1 / num2
     @classmethod
-    def exponent(cls, num1, num2):
+    def exponent(cls, num1 = 1, num2 = 1):
         return num1 ** num2
 
     @classmethod
@@ -50,16 +50,11 @@ class Calculator:
             except:
                 no_close_paren = True
             if not no_open_paren and not no_close_paren:
-                if no_open_paren != no_close_paren:
-                    return "Error: Missing parenthesis"
-                elif len(formula[open_paren + 1:close_paren]) == 0:
-                    return "Error: Empty parenthesis"
-                else: 
-                    formula.insert(open_paren, "*")
-                    formula.insert(open_paren, cls.solve("".join(formula[open_paren + 2:close_paren + 1])))
-                    formula.insert(open_paren, "*")
-                    for i in range(len(formula[open_paren:close_paren + 1])):
-                        formula.pop(open_paren + 3)
+                formula.insert(open_paren, "*")
+                formula.insert(open_paren, cls.solve("".join(formula[open_paren + 2:close_paren + 1])))
+                formula.insert(open_paren, "*")
+                for i in range(len(formula[open_paren:close_paren + 1])):
+                    formula.pop(open_paren + 3)
             formula = re.split(r"([\+\-\*\/\^\(\)])", "".join(formula).strip("+-*/^"))
             while(True):
                 sym = 0
@@ -99,7 +94,7 @@ class Calculator:
                         result = int(result)
                     return str(result) 
         else:
-            return "Error: Not valid"
+            raise ValueError(f"character not valid: '{string}'")
 
 print("Type \"quit\" to exit the program\n")
 while(True):
@@ -107,4 +102,7 @@ while(True):
     if inp.lower() == "quit":
         break
     else:
-        print("\t= " + Calculator.solve(inp) + "\n")
+        try:
+            print(f"\t= {Calculator.solve(inp)}\n")
+        except Exception as e:
+            print(f"\tERROR - {e}\n")
