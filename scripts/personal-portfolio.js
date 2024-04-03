@@ -78,6 +78,7 @@ document.querySelectorAll('.s-load').forEach(element => {
 });
 // #endregion
 
+// Prevent drag ghost effect
 document.querySelectorAll('img').forEach(element => {
   element.addEventListener('dragstart', event => {
     event.preventDefault();
@@ -87,4 +88,9 @@ document.querySelectorAll('a').forEach(element => {
   element.addEventListener('dragstart', event => {
     event.preventDefault();
   });
+});
+
+// Show JavaScript only elements
+document.querySelectorAll('.js-only').forEach(element => {
+  element.style.display = 'initial';
 });

@@ -57,30 +57,34 @@
         margin: 0;
         opacity: 0;
         transition: opacity 0.5s ease-in;
-        a {
+        a, noscript {
             margin: 0.5rem 1rem 1rem 1rem;
             border-radius: 0.5rem;
+            button {
+                height: 2.5rem;
+                min-width: 5rem;
+                font-size: 1.5rem;
+                background-color: var(--quaternary);
+                color: var(--tertiary);
+                padding: 0 1rem;
+                margin: 0;
+                border: 0.1rem solid transparent;
+                border-radius: inherit;
+                transition: background-color 0.25s, color 0.25s, border 0.25s;
+            }
+            button:hover {
+                background-color: var(--tertiary);
+                color: var(--quaternary);
+                cursor: pointer;
+            }
+            button:active {
+                background-color: var(--primary);
+                color: var(--tertiary);
+                border: 0.1rem solid var(--quaternary);
+            }
         }
-        button {
-            height: 2.5rem;
-            min-width: 5rem;
-            font-size: 1.5rem;
-            background-color: var(--quaternary);
-            color: var(--tertiary);
-            margin: 0;
-            border: 0.1rem solid transparent;
-            border-radius: 0.5rem;
-            transition: background-color 0.25s, color 0.25s, border 0.25s;
-        }
-        button:hover {
-            background-color: var(--tertiary);
-            color: var(--quaternary);
-            cursor: pointer;
-        }
-        button:active {
-            background-color: var(--primary);
-            color: var(--tertiary);
-            border: 0.1rem solid var(--quaternary);
+        noscript button {
+            user-select: all;
         }
     }
 }
@@ -89,4 +93,9 @@
     .expanded {
         opacity: 1;
     }
+}
+
+button::selection {
+    background-color: var(--primary);
+    color: var(--tertiary);
 }

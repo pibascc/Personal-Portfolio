@@ -13,9 +13,9 @@
     <title>Personal Portfolio - Aquino</title>
     <!-- #region Links -->
     <link rel="icon" type="image/x-icon" href="media/icons/personal-portfolio.ico">
-    <link rel="stylesheet" href="styles/personal-portfolio.css">
-    <link rel="stylesheet" href="styles/contacts.css">
-    <link rel="stylesheet"
+    <link rel="stylesheet" type="text/css" href="styles/personal-portfolio.css">
+    <link rel="stylesheet" type="text/css" href="styles/contacts.css">
+    <link rel="stylesheet" type="text/css"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <!-- #endregion -->
   </head>
@@ -68,7 +68,7 @@
       <div class="contacts">
         <!-- Facebook Profile -->
         <div class="contact s-hover" style="animation-delay: 2s;">
-          <img src="media/icons/Facebook_Logo_Primary.png">
+          <img src="media/icons/facebook_logo.svg">
           <h2>Facebook Profile</h2>
           <div class="expanded">
             <a href="https://www.facebook.com/princeian.aquino" target="_blank">
@@ -81,16 +81,19 @@
           <span class="material-symbols-outlined">call</span>
           <h2>Mobile Number</h2>
           <div class="expanded">
-            <a onclick="
+            <a class="js-only" onclick="
               navigator.clipboard.writeText('09810723855');
               uiAlert('Copied');">
               <button class="s-hover s-ding">Copy</button>
             </a>
+            <noscript>
+              <button>09810723855</button>
+            </noscript>
           </div>
         </div>
         <!-- Github Profile -->
         <div class="contact s-hover" style="animation-delay: 2.2s;">
-          <img src="media/icons/github-mark-white.png">
+          <img src="media/icons/github_logo.svg">
           <h2>Github Profile</h2>
           <div class="expanded">
             <a href="https://github.com/pibascc" target="_blank">

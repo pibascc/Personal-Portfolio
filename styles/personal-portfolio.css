@@ -283,6 +283,10 @@ hr {
 }
 /* #endregion */
 
+.js-only {
+    display: none;
+}
+
 @media only screen and (min-width: 992px) {
     :root {
         font-size: 20px;
