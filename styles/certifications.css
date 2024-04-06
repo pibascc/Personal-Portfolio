@@ -8,7 +8,8 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
-    width: 80%;
+    width: 100%;
+    max-width: 60rem;
 }
 .certificate {
     display: flex;
@@ -18,8 +19,8 @@
     overflow: hidden;
     top: -1rem;
     opacity: 0;
-    width: 20rem;
-    height: 15rem;
+    width: 28rem;
+    height: 21rem;
     border: 0.1rem solid var(--tertiary);
     border-radius: 0.5rem;
     background-color: var(--secondary);
@@ -28,7 +29,7 @@
     h2 {
         color: var(--tertiary);
         position: absolute;
-        font-size: 2rem;
+        font-size: 2.5rem;
         opacity: 0;
         transition: opacity 0.5s;
     }
@@ -38,6 +39,7 @@
         height: 100%;
         object-fit: cover;
         border-radius: inherit;
+        filter: brightness(0.9);
         transition: width 0.5s, height 0.5s, max-width 0.5s, max-height 0.5s, filter 0.5s;
     }
 }
@@ -53,10 +55,20 @@
     }
 }
 .certificate:active {
+    h2 {
+        opacity: 1;
+    }
     img {
         max-width: 110%;
         max-height: 110%;
         height: 110%;
         filter: brightness(0.1);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .certificate {
+        width: 24rem;
+        height: 18rem;
     }
 }
