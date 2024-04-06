@@ -1,74 +1,89 @@
-import re
+from math import *
+import re, ast
 
-def validate(string): return re.search(r"^[\+\-\*\/\^\(\)\.0-9]+$", "".join(string.split())) != None
-def last_index(list, value): return len(list) - list[::-1].index(value) - 1
-def num(x):
-    if not isinstance(x, float): x = float(x)
-    if x.is_integer(): x = int(x)
-    return x
-def operation(list, operator_index, func):
-    start, end = operator_index - 1, operator_index + 1
-    list.insert(start, str(num(func(num(list[start]), num(list[end])))))
-    for i in range((end + 1) - start): list.pop(start + 1) 
-def solve(string):
-    if string == "": raise ValueError("input not valid: 'empty'")
-    elif not validate(string): raise ValueError(f"input not valid: '{string}'")
-    else: 
-        formula = list(filter(None, re.split(r"([\+\-\*\/\^\(\)])", "".join(string.split()))))
-        
-        # Handle parenthesis
-        if formula.count("(") != formula.count(")"):
-            raise ValueError("missing parenthesis")
-        while "(" in formula or ")" in formula:
-            open_paren = formula.index("(")
-            close_paren = open_paren
-            open_paren_count, close_paren_count = 0, 0
-            for i, item in enumerate(formula):
-                if item == "(": open_paren_count += 1
-                elif item == ")":
-                    close_paren_count +=1
-                    if open_paren_count == close_paren_count:
-                        close_paren = i
-                        break
-            formula.insert(open_paren, solve("".join(formula[open_paren + 1:close_paren])))
-            result_index = open_paren
-            for i in range(len(formula[open_paren:close_paren + 1])): formula.pop(result_index + 1)
-            try:
-                float(formula[result_index - 1])
-                formula.insert(result_index, "*")
-                result_index += 1
-            except: pass
-            try:
-                float(formula[result_index + 1])
-                formula.insert(result_index + 1, "*")
-            except: pass
-        
-        # Handle negatives
-        formula = list(filter(None, re.split(r"([\+\-\*\/\^\(\)])", "".join(formula).strip("+*/^"))))
-        while "-" in formula:
-            minus = last_index(formula, "-")
-            formula.insert(minus, str(num(formula[minus + 1]) * -1))
-            for i in range(2): formula.pop(minus + 1)
-            try:
-                if minus - 1 < 0:
-                    raise IndexError
-                float(formula[minus - 1])
-                formula.insert(minus, "+")
-            except: continue
-        
-        # Handle operations
-        while True:
-            if "^" in formula: operation(formula, last_index(formula, "^"), lambda x, y: x ** y)
-            elif "*" in formula: operation(formula, formula.index("*"), lambda x, y: x * y)
-            elif "/" in formula: operation(formula, formula.index("/"), lambda x, y: x / y)
-            elif "+" in formula: operation(formula, formula.index("+"), lambda x, y: x + y)
-            else: return str(num("".join(formula))) 
-    
+# Main Program
+def main():
+    print("Type 'quit' to exit the program\n")
+    while(True):
+        inp = input('Calculator: ')
+        if inp != '':
+            if inp.lower() == 'quit': break
+            else:
+                try:
+                    if not is_valid(inp): raise ValueError('input contains invalid characters')
+                    else:
+                        # Insert '*' between parentheses and numbers and replace '^' with '**'
+                        expr = list(inp)
+                        for i, char in enumerate(expr):
+                            if char == '(':
+                                try:
+                                    if i - 1 < 0: raise IndexError
+                                    float(expr[i - 1])
+                                    expr.insert(i, '*')
+                                except (IndexError, ValueError): continue
+                            elif char == ')':
+                                try:
+                                    float(expr[i + 1])
+                                    expr.insert(i + 1, '*')
+                                except (IndexError, ValueError): continue
+                            elif char == '^':
+                                expr.pop(i)
+                                expr.insert(i, '**')
 
-print("Type \"quit\" to exit the program\n")
-while(True):
-    inp = input("Calculator: ")
-    if inp.lower() == "quit": break
+                        # Evaluate
+                        output = safe_eval(''.join(expr))
+                        if output == None: raise ValueError("no output")
+                        elif isinstance(output, (int, float)): print(f'\t= {smart_int(output)}\n')
+                        else: print(f'{output}\n')
+                except Exception as e: print(f"\tERROR - {e}\n")
+
+# Functions
+def is_valid(string): return re.search(r'^[\+\-\*\/\^\(\)\.\_\,0-9a-zA-Z]+$', ''.join(string.split())) != None
+def smart_int(x: int | float):
+    if isinstance(x, int): return x
     else:
-        try: print(f"\t= {solve(inp)}\n")
-        except Exception as e: print(f"\tERROR - {e}\n")
+        if x.is_integer(): x = int(x)
+        return x
+def root(index, radicand): return radicand ** (1/index)
+def sum_args(*args): return sum(args) # Make sum() accept arguments
+def prod_args(*args): return prod(args) # Make prod() accept arguments
+def help(): return '\tAvailable Functions:\n\n' + ''.join([(f'\t{key}()\n') for key in allowed_functions.keys()])
+
+def evaluate(node, variables):
+    if isinstance(node, ast.Constant): return node.n
+    elif isinstance(node, ast.Name): return variables.get(node.id, None)
+    elif isinstance(node, ast.BinOp):
+        left = evaluate(node.left, variables)
+        right = evaluate(node.right, variables)
+        if isinstance(node.op, ast.Add): return left + right
+        elif isinstance(node.op, ast.Sub): return left - right
+        elif isinstance(node.op, ast.Mult): return left * right
+        elif isinstance(node.op, ast.Div): return left / right
+        elif isinstance(node.op, ast.Pow): return left ** right
+    elif isinstance(node, ast.UnaryOp):
+        operand = evaluate(node.operand, variables)
+        if isinstance(node.op, ast.UAdd): return operand
+        elif isinstance(node.op, ast.USub): return -operand
+    elif isinstance(node, ast.Call):
+        func_name = node.func.id
+        args = [evaluate(arg, variables) for arg in node.args]
+        if func_name in allowed_functions: return allowed_functions[func_name](*args)
+        else: raise ValueError(f"function '{func_name}' unrecognized or not allowed, use 'help()' for the list of functions")
+    else: raise ValueError("invalid expression")
+def safe_eval(expr, variables={}):
+    parsed_expr = ast.parse(expr, mode='eval')
+    return evaluate(parsed_expr.body, variables)
+
+allowed_functions = {
+    'abs': abs,
+    'min': min, 'max': max,
+    'round': round, 'ceil': ceil, 'floor': floor,
+    'sum': sum_args, 'prod': prod_args,
+    'sqrt': sqrt, 'root': root,
+    'sin': sin, 'cos': cos, 'tan': tan,
+    'factorial': factorial, 'perm': perm, 'comb': comb,
+    'gcd': gcd, 'lcm': lcm,
+    'help': help
+}
+
+main()
