@@ -97,7 +97,7 @@
         .progress {
             width: 80%;
             height: 0.5rem;
-            background-color: #E2E2E2;
+            background-color: var(--quaternary);
             border-radius: 1rem;
             margin-bottom: 1.2rem;
             .current-progress {
