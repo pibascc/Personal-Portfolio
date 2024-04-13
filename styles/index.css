@@ -5,14 +5,12 @@
     justify-content: center;
     gap: 3rem;
     align-items: center;
-    margin: 0 auto;
 }
 .navblock {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 1rem;
     gap: 1rem;
     .navtile {
         display: flex;
@@ -23,13 +21,16 @@
         top: -1rem;
         width: 6rem;
         height: 4rem;
-        border: 0.1rem solid var(--tertiary);
         border-radius: 1rem;
         color: var(--tertiary);
         overflow: hidden;
         text-decoration: none;
         opacity: 0;
-        transition: height 0.3s, background-color 0.25s, color 0.25s;
+        box-shadow:
+            inset 0 0 0.2rem var(--accent),
+            0.05rem 0.05rem var(--accent),
+            0.1rem 0.1rem 0.5rem var(--accent);
+        transition: height 0.3s, background-color 0.1s, color 0.25s, box-shadow 0.5s;
         animation: fade-in-down 0.75s ease-out forwards;
         span {
             font-size: 2rem;
@@ -54,13 +55,16 @@
     }
     .navtile:hover {
         height: 5rem;
+        box-shadow:
+            inset 0 -0.1rem 0.2rem var(--accent),
+            0 0.1rem var(--accent),
+            0 0.2rem 0.5rem var(--accent);
         & .expanded {
             opacity: 1;
         }
     }
     .navtile:active {
-        color: var(--secondary);
-        background-color: var(--tertiary);
+        background-color: var(--quaternary);
     }
 }
 .about-me {
@@ -104,8 +108,9 @@
     img {
         width: 7.5rem;
         height: 7.5rem;
-        border: 0.2rem solid var(--tertiary);
+        border: 0.1rem solid var(--tertiary);
         border-radius: 50%;
+        background-color: var(--secondary);
         object-fit: contain;
     }
 }
@@ -119,11 +124,14 @@
     width: 100%;
     height: 7.5rem;
     background-color: var(--secondary);
-    border: 0.1rem solid var(--tertiary);
     border-radius: 2rem;
-    transition: height 0.5s;
     opacity: 0;
     overflow: hidden;
+    box-shadow:
+        inset 0 0 0.2rem var(--accent),
+        0.05rem 0.05rem var(--accent),
+        0.1rem 0.1rem 0.5rem var(--accent);
+    transition: height 0.5s, box-shadow 0.5s;
     animation: fade-in-down 0.75s 3s ease-out forwards;
     h1 {
         font-size: 3rem;
@@ -150,6 +158,10 @@
 }
 .bio:hover {
     height: 14rem;
+    box-shadow:
+        inset 0 -0.1rem 0.2rem var(--accent),
+        0 0.1rem var(--accent),
+        0 0.2rem 0.5rem var(--accent);
     .expanded {
         opacity: 1;
     }

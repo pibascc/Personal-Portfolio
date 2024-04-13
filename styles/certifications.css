@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 1rem;
     width: 100%;
     max-width: 60rem;
 }
@@ -21,10 +21,14 @@
     opacity: 0;
     width: 28rem;
     height: 21rem;
-    border: 0.1rem solid var(--tertiary);
     border-radius: 0.5rem;
     background-color: var(--secondary);
-    padding: 0.5rem;
+    padding: 1rem;
+    box-shadow:
+        inset 0 0 0.2rem var(--accent),
+        0.05rem 0.05rem var(--accent),
+        0.1rem 0.1rem 0.5rem var(--accent);
+    transition: box-shadow 0.5s;
     animation: fade-in-down 0.75s ease-out forwards;
     h2 {
         color: var(--tertiary);
@@ -44,6 +48,10 @@
     }
 }
 .certificate:hover {
+    box-shadow:
+        inset 0 -0.1rem 0.2rem var(--accent),
+        0 0.1rem var(--accent),
+        0 0.2rem 0.5rem var(--accent);
     h2 {
         opacity: 1;
     }

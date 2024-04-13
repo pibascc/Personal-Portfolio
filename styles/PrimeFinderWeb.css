@@ -7,6 +7,8 @@
     font-size: 20px;
     font-family: sans-serif;
     text-align: center;
+    scrollbar-color: var(--accent) var(--quaternary);
+    scrollbar-width: thin;
 }
 * {
     box-sizing: border-box;
@@ -67,9 +69,19 @@ main {
     width: 100%;
     height: 8rem;
     margin: 1.25rem auto;
-    border: 0.05rem solid var(--tertiary);
     background-color: var(--secondary);
     border-radius: 20px;
+    box-shadow:
+        inset 0 0 0.1rem var(--accent),
+        0.025rem 0.025rem var(--accent),
+        0.05rem 0.05rem 0.25rem var(--accent);
+    transition: box-shadow 0.5s;
+}
+#result_field:hover {
+    box-shadow:
+        inset 0 -0.05rem 0.1rem var(--accent),
+        0 0.05rem var(--accent),
+        0 0.1rem 0.25rem var(--accent);
 }
 #result_field h2 {
     font-size: 3rem;
@@ -111,12 +123,20 @@ main {
     border: 2px solid var(--accent);
     border-radius: 50%;
     opacity: 0.9;
+    box-shadow: 0 0 1rem var(--accent);
     transform: translate(-50%, -50%);
     pointer-events: none;
     animation: click-effect 0.5s ease-out forwards;
 }
 
+@media only screen and (min-width: 600px) {
+    /* Tablets */
+    :root {
+        font-size: 35px;
+    }
+}
 @media only screen and (min-width: 992px) {
+    /* Desktop */
     :root {
         font-size: 40px;
     }
