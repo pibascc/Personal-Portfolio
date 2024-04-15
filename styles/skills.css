@@ -39,12 +39,12 @@
         height: 12rem;
         position: absolute;
         top: 0;
+        z-index: 3;
         img {
             object-fit: contain;
             margin-top: 1.2rem;
             height: 7rem;
             border-radius: 0.5rem;
-            z-index: 3;
         }
         .text {
             display: flex;
@@ -57,8 +57,6 @@
             margin-bottom: 1.2rem;
             h2 {
                 font-size: 1.75rem;
-                margin: 0;
-                z-index: 3;
             }
         }
     }
