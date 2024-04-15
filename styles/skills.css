@@ -44,7 +44,7 @@
             margin-top: 1.2rem;
             height: 7rem;
             border-radius: 0.5rem;
-            z-index: 1;
+            z-index: 3;
         }
         .text {
             display: flex;
@@ -58,7 +58,7 @@
             h2 {
                 font-size: 1.75rem;
                 margin: 0;
-                z-index: 1;
+                z-index: 3;
             }
         }
     }
